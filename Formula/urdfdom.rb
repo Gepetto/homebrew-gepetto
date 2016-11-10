@@ -10,6 +10,7 @@ class Urdfdom < Formula
   depends_on "urdfdom-headers"
   depends_on "console-bridge"
   depends_on "boost"
+  depends_on "tinyxml"
 
   def install
     mkdir "build" do
