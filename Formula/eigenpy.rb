@@ -1,7 +1,7 @@
 class Eigenpy < Formula
   desc "Python bindings of Eigen library with Numpy support."
   homepage "https://stack-of-tasks.github.io/pinocchio"
-  url "ftp://trac.laas.fr/pub/openrobots/eigenpy/eigenpy-1.3.1.tar.gz"
+  url "http://www.openrobots.org/distfiles/eigenpy/eigenpy-1.3.1.tar.gz"
   sha256 "69e3a403322f99ed029532c350e0613f51630b0439724dcb103f68d55f8873c7"
 
   head "https://github.com/stack-of-tasks/eigenpy.git", :branch => "master"

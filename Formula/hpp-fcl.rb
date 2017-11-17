@@ -1,7 +1,7 @@
 class HppFcl < Formula
   desc "An extension of the Flexible Collision Library"
   homepage "https://github.com/humanoid-path-planner/hpp-fcl"
-  url "ftp://trac.laas.fr/pub/openrobots/hpp-fcl/hpp-fcl-0.4.2.tar.gz"
+  url "http://www.openrobots.org/distfiles/hpp-fcl/hpp-fcl-0.4.2.tar.gz"
   sha256 "d1ef1eba5cd983b7e1efbff136aeadc23ebdf87eb736d6ed12702d7d7e168f46"
 
   head "https://github.com/humanoid-path-planner/hpp-fcl", :branch => "master"

@@ -3,7 +3,7 @@ class Pinocchio < Formula
   homepage "https://stack-of-tasks.github.io/pinocchio"
 
   stable do
-    url "ftp://trac.laas.fr/pub/openrobots/pinocchio/pinocchio-1.2.3.tar.gz"
+    url "http://www.openrobots.org/distfiles/pinocchio/pinocchio-1.2.3.tar.gz"
     sha256 "3d61ffd8fbd17baba66658fb9d7ccce48fe2b6af55546283d18af4ba31573fbd"
   end
 
