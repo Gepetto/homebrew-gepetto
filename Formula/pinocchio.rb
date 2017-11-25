@@ -3,17 +3,17 @@ class Pinocchio < Formula
   homepage "https://stack-of-tasks.github.io/pinocchio"
 
   stable do
-    url "http://www.openrobots.org/distfiles/pinocchio/pinocchio-1.2.3.tar.gz"
-    sha256 "3d61ffd8fbd17baba66658fb9d7ccce48fe2b6af55546283d18af4ba31573fbd"
+    url "http://www.openrobots.org/distfiles/pinocchio/pinocchio-1.2.5.tar.gz"
+    sha256 "4b757ae30eea8003a6062937e65996773ced234c2bda7f19d81621360b9a6497"
   end
 
-  head do
-    url "https://github.com/jcarpent/pinocchio.git", :branch => "master"
-  end
+  #head do
+  #  url "https://github.com/jcarpent/pinocchio.git", :branch => "master"
+  #end
 
-  devel do
-    url "https://github.com/jcarpent/pinocchio.git", :branch => "devel"
-  end
+  #devel do
+  #  url "https://github.com/jcarpent/pinocchio.git", :branch => "devel"
+  #end
 
   option "without-python", "Build without Python support"
   option "without-fcl", "Build without FCL support"
