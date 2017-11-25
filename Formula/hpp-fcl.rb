@@ -1,8 +1,8 @@
 class HppFcl < Formula
   desc "An extension of the Flexible Collision Library"
   homepage "https://github.com/humanoid-path-planner/hpp-fcl"
-  url "http://www.openrobots.org/distfiles/hpp-fcl/hpp-fcl-0.4.2.tar.gz"
-  sha256 "d1ef1eba5cd983b7e1efbff136aeadc23ebdf87eb736d6ed12702d7d7e168f46"
+  url "http://www.openrobots.org/distfiles/hpp-fcl/hpp-fcl-0.5.1.tar.gz"
+  sha256 "34faf1f779074554111929a581d98db5da4a5cb27bf0cbecb9a1a3fecf35d3f0"
 
   head "https://github.com/humanoid-path-planner/hpp-fcl", :branch => "master"
 
@@ -12,6 +12,7 @@ class HppFcl < Formula
   depends_on "pkg-config" => :build
   depends_on "doxygen" => :build
   depends_on "assimp"
+  depends_on "eigen"
   depends_on "homebrew/science/libccd"
 
   def install
