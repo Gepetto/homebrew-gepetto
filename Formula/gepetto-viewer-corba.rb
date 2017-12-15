@@ -12,14 +12,14 @@ class GepettoViewerCorba < Formula
   depends_on "pkg-config" => :build
   depends_on "doxygen" => :build
   depends_on "boost"
+  depends_on "qt@4"
   depends_on "omniorb"
   depends_on "gepetto-viewer"
-  depends_on "qt@4"
   depends_on "osgqt"
 
   def install
     args = std_cmake_args
-    args << "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_prefix}"
+    args << "-DCMAKE_PREFIX_PATH=#{Formula["qt@4"].opt_bin}"
     args << "-DCMAKE_PREFIX_PATH=#{Formula["osgqt"].opt_prefix}/lib/pkgconfig"
     if build.devel?
       system "git submodule cmake update --init"
