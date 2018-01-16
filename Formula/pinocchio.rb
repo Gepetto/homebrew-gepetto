@@ -3,8 +3,8 @@ class Pinocchio < Formula
   homepage "https://stack-of-tasks.github.io/pinocchio"
 
   stable do
-    url "http://www.openrobots.org/distfiles/pinocchio/pinocchio-1.2.5.tar.gz"
-    sha256 "4b757ae30eea8003a6062937e65996773ced234c2bda7f19d81621360b9a6497"
+    url "http://www.openrobots.org/distfiles/pinocchio/pinocchio-1.2.6.tar.gz"
+    sha256 "6580ff23743a72633678b9c4109891aa1830bd271cde7858652f7ca127fb9be8"
   end
 
   #head do
