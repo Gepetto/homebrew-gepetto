@@ -13,7 +13,7 @@ class HppFcl < Formula
   depends_on "doxygen" => :build
   depends_on "assimp"
   depends_on "eigen"
-  depends_on "homebrew/science/libccd"
+  depends_on "brewsci/homebrew-science/cddlib"
 
   def install
     mkdir "build" do
