@@ -5,7 +5,6 @@ class GitLatexdiff < Formula
     :tag => "v1.1.4",
     :revision => "dc84273afc2e366d6c4f98a07052e651c7d297dd"
 
-  depends_on :tex
   depends_on "latexdiff"
 
   def install
