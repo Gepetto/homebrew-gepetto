@@ -3,8 +3,8 @@ class Pinocchio < Formula
   homepage "https://stack-of-tasks.github.io/pinocchio"
 
   stable do
-    url "http://www.openrobots.org/distfiles/pinocchio/pinocchio-1.2.7.tar.gz"
-    sha256 "0d3586a9aa144121c893b27ea8c1129c51e5f2b11f054379ae60e5637a2089a1"
+    url "https://github.com/stack-of-tasks/pinocchio/releases/download/v1.2.8/pinocchio-1.2.8.tar.gz"
+    sha256 "ce7ff3c514ca11b70c5884e899eb4ad32163a47151972fa597c8ae64af5fcb70"
     
     patch :DATA
   end
@@ -35,7 +35,7 @@ class Pinocchio < Formula
 
   def install
     if build.devel?
-      system "git submodule cmake update --init"
+      system "git submodule update --init"
     end
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DBUILD_UNIT_TESTS=OFF"
