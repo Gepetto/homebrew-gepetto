@@ -3,8 +3,8 @@ class Pinocchio < Formula
   homepage "https://stack-of-tasks.github.io/pinocchio"
 
   stable do
-    url "https://github.com/stack-of-tasks/pinocchio/releases/download/v1.2.8/pinocchio-1.2.8.tar.gz"
-    sha256 "ce7ff3c514ca11b70c5884e899eb4ad32163a47151972fa597c8ae64af5fcb70"
+    url "https://github.com/stack-of-tasks/pinocchio/releases/download/v1.2.9/pinocchio-1.2.9.tar.gz"
+    sha256 "bb6a57ab6463cd041b3c887d3ec85c8503ee31713ef33b5657e4176698c05ca5"
     
     patch :DATA
   end
@@ -19,7 +19,6 @@ class Pinocchio < Formula
 
   option "without-python", "Build without Python support"
   option "without-fcl", "Build without FCL support"
-
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
