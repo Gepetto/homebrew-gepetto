@@ -1,12 +1,19 @@
 class GepettoViewerCorba < Formula
-  desc "An efficient library for Rigid Body Dynamics"
-  homepage "https://stack-of-tasks.github.io/pinocchio"
+  desc "Graphical Interface for Pinocchio and HPP"
+  homepage "https://github.com/humanoid-path-planner/gepetto-viewer"
   url "https://github.com/humanoid-path-planner/gepetto-viewer-corba"
 
   stable do
-    url "https://github.com/humanoid-path-planner/gepetto-viewer-corba/releases/download/v2.0.0/gepetto-viewer-corba-2.0.0.tar.gz"
-    sha256 "39ef619e57747656b76666863052607818d1fe0fd789baabf1d631671c19f412"
+    url "https://github.com/humanoid-path-planner/gepetto-viewer-corba/releases/download/v2.3.1/gepetto-viewer-corba-2.3.1.tar.gz"
+    sha256 "214f5038aeba74a64b548f55c429401d08a43672682146b111c3ddfec8c7c4eb"
   end
+
+  bottle do
+    cellar :any_skip_relocation
+    root_url "https://github.com/humanoid-path-planner/gepetto-viewer-corba/releases/download/v2.3.1"
+    
+    sha256 "46b2c09f163e8793fdb0947b506816261231bb612be05a2b9873165899b0b202" => :high_sierra
+  end 
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
