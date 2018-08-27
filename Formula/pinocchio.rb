@@ -10,6 +10,13 @@ class Pinocchio < Formula
     patch :DATA
   end
 
+  bottle do
+    cellar :any_skip_relocation
+    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v1.3.0"
+
+    sha256 "d2992129cb9b5cf3770421d9baecbca4dbfb84be34602869a3ecf9d2fa569bd8" => :high_sierra
+  end
+
   #head do
   #  url "https://github.com/jcarpent/pinocchio.git", :branch => "master"
   #end
