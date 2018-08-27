@@ -6,7 +6,12 @@ class HppFcl < Formula
 
   head "https://github.com/humanoid-path-planner/hpp-fcl", :branch => "master"
 
-  patch :p1, :DATA
+  bottle do
+    cellar :any_skip_relocation
+    root_url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v0.5.1"
+
+    sha256 "eebf60b46d631fc9422cbb166c25deb9b19bd91a362f12a2daaeb0e6a7f64ccd" => :high_sierra
+  end 
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -28,5 +33,3 @@ class HppFcl < Formula
     system "false"
   end
 end
-
-__END__
