@@ -11,7 +11,8 @@ class GepettoViewer < Formula
     cellar :any_skip_relocation
     root_url "https://github.com/humanoid-path-planner/gepetto-viewer/releases/download/v2.1.3"
 
-    sha256 "76e1d00d02339d26c2d8983bdde4f8926cc262d37e027d4c58e539b931513fb4" => :high_sierra
+    rebuild 1
+    sha256 "dbb32bdb0343fd71cbe95bb2e8514d97615a1e664a728d86f60ef97ca2f5a933" => :high_sierra
   end
 
   depends_on "cmake" => :build
