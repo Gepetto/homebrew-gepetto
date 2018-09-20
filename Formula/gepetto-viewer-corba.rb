@@ -12,7 +12,8 @@ class GepettoViewerCorba < Formula
     cellar :any_skip_relocation
     root_url "https://github.com/humanoid-path-planner/gepetto-viewer-corba/releases/download/v2.3.1"
     
-    sha256 "46b2c09f163e8793fdb0947b506816261231bb612be05a2b9873165899b0b202" => :high_sierra
+    rebuild 1
+    sha256 "e4cf462bb1a9f32506dafc4f472f2aae04211a875c5485d0abeb8bc5447ff8dc" => :high_sierra
   end 
 
   depends_on "cmake" => :build
