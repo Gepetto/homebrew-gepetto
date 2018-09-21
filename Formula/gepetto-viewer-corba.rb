@@ -20,7 +20,7 @@ class GepettoViewerCorba < Formula
   depends_on "pkg-config" => :build
   depends_on "doxygen" => :build
   depends_on "boost"
-  depends_on "qt@4"
+  depends_on "cartr/qt4/qt@4"
   depends_on "omniorb"
   depends_on "gepetto-viewer"
   depends_on "osgqt"
