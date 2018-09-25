@@ -4,18 +4,17 @@ class Pinocchio < Formula
   head "https://github.com/stack-of-tasks/pinocchio"
 
   stable do
-    url "https://github.com/stack-of-tasks/pinocchio/releases/download/v1.3.0/pinocchio-1.3.0.tar.gz"
-    sha256 "2941318c1afa1235b26cbdeb5f133306475ac4cb419b57abc6a9d6c6f624869e"
+    url "https://github.com/stack-of-tasks/pinocchio/releases/download/v1.3.1/pinocchio-1.3.1.tar.gz"
+    sha256 "7262f7293a334ffa343e71a0638eb50c524e3cc52ab643de460efe887b3caf10"
     
     patch :DATA
   end
 
   bottle do
     cellar :any_skip_relocation
-    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v1.3.0"
+    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v1.3.1"
 
-    rebuild 1
-    sha256 "3f06b656f170474b0bf85a44e33a77694e898bcbace19c1ad26feb6f38b73b76" => :high_sierra
+    sha256 "ce324d7f80e4d857356bbdcecabaf47b416ea5e355f6b1570d49742e408bb700" => :high_sierra
   end
 
   #head do
