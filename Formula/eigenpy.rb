@@ -1,15 +1,13 @@
 class Eigenpy < Formula
   desc "Python bindings of Eigen library with Numpy support."
   homepage "https://github.com/stack-of-tasks/eigenpy"
-  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.4.5/eigenpy-1.4.5.tar.gz"
-  sha256 "98d4838d3c3645140f389f810824c801f81b2c9fb39759bdad4979536461637d"
+  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.5.0/eigenpy-1.5.0.tar.gz"
+  sha256 "4385bf1b8f8624a584022817b41e6b3e300a5e942f974e3c9d41643fafd0bf74"
   head "https://github.com/stack-of-tasks/eigenpy.git", :branch => "devel"
 
   bottle do
-    cellar :any_skip_relocation
-    root_url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.4.5"
-
-    sha256 "f4adf4c40983cd2bcc360da25af6871fbc3d91015cc4164b1b5a31e9dc16c3a0" => :high_sierra
+    root_url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.5.0"
+    sha256 "f56543ea3f9e74970b69ba801f9f38b54e77c73e6dc3d84804583b542a9de681" => :mojave
   end 
 
   depends_on :xcode => :build
@@ -24,8 +22,6 @@ class Eigenpy < Formula
   def install
     mkdir "build" do
       args = *std_cmake_args
-      args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
-      args << "-DCMAKE_BUILD_TYPE=Release"
       system "cmake", "..", *args
       system "make"
       system "make", "install"
