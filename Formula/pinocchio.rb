@@ -4,15 +4,15 @@ class Pinocchio < Formula
   head "https://github.com/stack-of-tasks/pinocchio"
 
   stable do
-    url "https://github.com/stack-of-tasks/pinocchio/releases/download/v1.3.3/pinocchio-1.3.3.tar.gz"
-    sha256 "9fbaf4d1f517ce00be4041b68e51f344e9122425cdad2749ce218ef631f917e6"
+    url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.0.0/pinocchio-2.0.0.tar.gz"
+    sha256 "d26fa5fa4b25acbdfe83b686b73ccbc724a51c7532ccb8ce259b5c06d6b80525"
     
     patch :DATA
   end
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v1.3.3"
-    sha256 "b15e2ad437087e4bf5b85119f8d96a81f233dcdb42da16cef6e41f6c53e0f161" => :mojave
+  root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.0.0/pinocchio-2.0.0.mojave.bottle.tar.gz"
+    sha256 "fc46d2dfd67a95b08dac2f2e616e7b87c52de14a7dbb9cfa5ff30352da7f7669" => :mojave
   end
 
   #head do
@@ -42,8 +42,18 @@ class Pinocchio < Formula
     if build.devel?
       system "git submodule update --init"
     end
+
+    pyver = Language::Python.major_minor_version "python2"
+    py_prefix = Formula["python2"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DBUILD_UNIT_TESTS=OFF"
+      args = *std_cmake_args
+      args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
+      args << "-DCMAKE_BUILD_TYPE=Release"
+      args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}m"
+      args << "-DPYTHON_LIBRARY=#{py_prefix}/lib"
+      args << "-DPYTHON_EXECUTABLE=#{py_prefix}/bin/python2"
+      system "cmake", "..", *args
       system "make"
       system "make", "install"
     end
@@ -53,3 +63,23 @@ class Pinocchio < Formula
     system "false"
   end
 end
+__END__
+diff --git a/cmake/python.cmake b/cmake/python.cmake
+index 75fafbf..15ef89b 100644
+--- a/cmake/python.cmake
++++ b/cmake/python.cmake
+@@ -1,4 +1,4 @@
+-# Copyright (C) 2008-2014 LAAS-CNRS, JRL AIST-CNRS.
++# Copyright (C) 2008-2019 LAAS-CNRS, JRL AIST-CNRS, INRIA.
+ #
+ # This program is free software: you can redistribute it and/or modify
+ # it under the terms of the GNU General Public License as published by
+@@ -54,6 +54,8 @@ IF (NOT ${PYTHONINTERP_FOUND} STREQUAL TRUE)
+ ENDIF (NOT ${PYTHONINTERP_FOUND} STREQUAL TRUE)
+ MESSAGE(STATUS "PythonInterp: ${PYTHON_EXECUTABLE}")
+ 
++# Inform PythonLibs of the required version of PythonInterp
++SET(PYTHONLIBS_VERSION_STRING ${PYTHON_VERSION_STRING})
+ FIND_PACKAGE(PythonLibs ${ARGN})
+ MESSAGE(STATUS "PythonLibraries: ${PYTHON_LIBRARIES}")
+ IF (NOT ${PYTHONLIBS_FOUND} STREQUAL TRUE)
