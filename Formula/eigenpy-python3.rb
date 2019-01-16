@@ -1,16 +1,9 @@
 class EigenpyPython3 < Formula
   desc "Python bindings of Eigen library with Numpy support."
   homepage "https://github.com/stack-of-tasks/eigenpy"
-  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.4.5/eigenpy-1.4.5.tar.gz"
-  sha256 "98d4838d3c3645140f389f810824c801f81b2c9fb39759bdad4979536461637d"
+  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.5.0/eigenpy-1.5.0.tar.gz"
+  sha256 "4385bf1b8f8624a584022817b41e6b3e300a5e942f974e3c9d41643fafd0bf74"
   head "https://github.com/stack-of-tasks/eigenpy.git", :branch => "devel"
-
-  bottle do
-    cellar :any_skip_relocation
-    root_url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.4.5"
-    
-    sha256 "6e4a910e955a875d515680ecdc095b1bc8b73944fc08e1175af45b4f5472bb10" => :high_sierra
-  end 
 
   depends_on :xcode => :build
   depends_on "cmake" => :build
@@ -20,6 +13,11 @@ class EigenpyPython3 < Formula
   depends_on "boost-python3"
   depends_on "numpy"
   depends_on "python"
+
+  bottle do
+    root_url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.5.0/eigenpy-python3-1.5.0.mojave.bottle.tar.gz"
+    sha256 "a1a5fe30f35165699ce2454977e7162bcd3953c9dbd01ff13b6a0eae7b12f21e" => :mojave
+  end
 
   def install
     
@@ -32,7 +30,7 @@ class EigenpyPython3 < Formula
       args << "-DCMAKE_BUILD_TYPE=Release"
       args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}m"
       args << "-DPYTHON_LIBRARY=#{py_prefix}/lib"
-      args << "-DPYTHON_EXECUTABLE=#{py_prefix}/bin/python3"
+      args << "-DPYTHON_EXECUTABLE=#{py_prefix}/bin/python#{pyver}"
       system "cmake", "..", *args
       system "make"
       system "make", "install"
