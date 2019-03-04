@@ -1,16 +1,14 @@
 class HppFcl < Formula
   desc "An extension of the Flexible Collision Library"
   homepage "https://github.com/humanoid-path-planner/hpp-fcl"
-  url "http://www.openrobots.org/distfiles/hpp-fcl/hpp-fcl-0.5.1.tar.gz"
-  sha256 "34faf1f779074554111929a581d98db5da4a5cb27bf0cbecb9a1a3fecf35d3f0"
+  url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.0.1/hpp-fcl-1.0.1.tar.gz"
+  sha256 "05844d9c67d4bad75e25ab95c2057036e3bbded9be82f0d59d95981ca393ab08"
 
   head "https://github.com/humanoid-path-planner/hpp-fcl", :branch => "master"
 
   bottle do
-    cellar :any_skip_relocation
-    root_url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v0.5.1"
-
-    sha256 "eebf60b46d631fc9422cbb166c25deb9b19bd91a362f12a2daaeb0e6a7f64ccd" => :high_sierra
+    root_url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.0.1"
+    sha256 "cb7b42f722427185ce9e215bcc020c3d51d20f5f715cb6141135bb54d8a34f24" => :mojave
   end 
 
   depends_on "cmake" => :build
@@ -18,6 +16,7 @@ class HppFcl < Formula
   depends_on "doxygen" => :build
   depends_on "assimp"
   depends_on "eigen"
+  depends_on "octomap"
   depends_on "brewsci/homebrew-science/cddlib"
 
   def install
