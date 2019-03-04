@@ -4,15 +4,15 @@ class Pinocchio < Formula
   head "https://github.com/stack-of-tasks/pinocchio"
 
   stable do
-    url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.0.0/pinocchio-2.0.0.tar.gz"
-    sha256 "d26fa5fa4b25acbdfe83b686b73ccbc724a51c7532ccb8ce259b5c06d6b80525"
+    url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.0/pinocchio-2.1.0.tar.gz"
+    sha256 "72c9690e3da92a06d96d7a04dad4e081318c0c5070ad1316d82ab5c204297139"
     
     patch :DATA
   end
 
   bottle do
-  root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.0.0/pinocchio-2.0.0.mojave.bottle.tar.gz"
-    sha256 "fc46d2dfd67a95b08dac2f2e616e7b87c52de14a7dbb9cfa5ff30352da7f7669" => :mojave
+    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.0/pinocchio-2.1.0.mojave.bottle.tar.gz"
+    sha256 "8d334273e9cc6c2d0861105bbdfa1a90dd59f78b735bcb8f20ba9d5432c20afd" => :mojave
   end
 
   #head do
@@ -64,22 +64,3 @@ class Pinocchio < Formula
   end
 end
 __END__
-diff --git a/cmake/python.cmake b/cmake/python.cmake
-index 75fafbf..15ef89b 100644
---- a/cmake/python.cmake
-+++ b/cmake/python.cmake
-@@ -1,4 +1,4 @@
--# Copyright (C) 2008-2014 LAAS-CNRS, JRL AIST-CNRS.
-+# Copyright (C) 2008-2019 LAAS-CNRS, JRL AIST-CNRS, INRIA.
- #
- # This program is free software: you can redistribute it and/or modify
- # it under the terms of the GNU General Public License as published by
-@@ -54,6 +54,8 @@ IF (NOT ${PYTHONINTERP_FOUND} STREQUAL TRUE)
- ENDIF (NOT ${PYTHONINTERP_FOUND} STREQUAL TRUE)
- MESSAGE(STATUS "PythonInterp: ${PYTHON_EXECUTABLE}")
- 
-+# Inform PythonLibs of the required version of PythonInterp
-+SET(PYTHONLIBS_VERSION_STRING ${PYTHON_VERSION_STRING})
- FIND_PACKAGE(PythonLibs ${ARGN})
- MESSAGE(STATUS "PythonLibraries: ${PYTHON_LIBRARIES}")
- IF (NOT ${PYTHONLIBS_FOUND} STREQUAL TRUE)
