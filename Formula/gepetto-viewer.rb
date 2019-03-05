@@ -3,15 +3,20 @@ class GepettoViewer < Formula
   homepage "https://github.com/humanoid-path-planner/gepetto-viewer"
 
   stable do
-    url "https://github.com/humanoid-path-planner/gepetto-viewer/releases/download/v4.3.0/gepetto-viewer-4.3.0.tar.gz"
-    sha256 "98f25dede2a355b8d1e63ab8b6eafa28e41da44374570088eb09747b7508790d"
+    url "https://github.com/humanoid-path-planner/gepetto-viewer/releases/download/v4.4.1/gepetto-viewer-4.4.1.tar.gz"
+    sha256 "038889e00cc781503714b7eb823977299f8b189edf82b5a663c7307315d2800f"
+  end
+
+  bottle do
+    root_url "https://github.com/Gepetto/gepetto-viewer/releases/download/v4.4.1"
+    sha256 "926d3ab851b80d2e4ccf6cc178d23870acf8f54872805d396256621ac5ce9206" => :mojave
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "doxygen" => :build
   depends_on "boost"
-  depends_on "open-scene-graph"
+  depends_on "gepetto/gepetto/open-scene-graph-with-colladadom"
   depends_on "urdfdom"
   depends_on :x11
 
@@ -20,7 +25,10 @@ class GepettoViewer < Formula
       system "git submodule cmake update --init"
     end
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DBUILD_UNIT_TESTS=OFF"
+      args = *std_cmake_args
+      args << "-DCMAKE_CXX_FLAGS=-std=gnu++11"
+      args << "-DBUILD_UNIT_TESTS=OFF"
+      system "cmake", "..", *args
       system "make"
       system "make", "install"
     end
