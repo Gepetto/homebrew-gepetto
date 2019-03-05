@@ -1,7 +1,7 @@
 class PinocchioPython3 < Formula
   desc "An efficient and fast C++ library implementing Rigid Body Dynamics algorithms"
   homepage "https://stack-of-tasks.github.io/pinocchio"
-  head "https://github.com/stack-of-tasks/pinocchio"
+  head "https://github.com/stack-of-tasks/pinocchio.git", :branch => "devel"
 
   stable do
     url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.0/pinocchio-2.1.0.tar.gz"
@@ -13,10 +13,6 @@ class PinocchioPython3 < Formula
   bottle do
     root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.0/pinocchio-python3-2.1.0.mojave.bottle.tar.gz"
     sha256 "9ad4347a05e9ad1994489f35152a864498d63f938d1870c9aabc8c77378111d4" => :mojave
-  end
-
-  devel do
-    url "https://github.com/stack-of-tasks/pinocchio.git", :branch => "devel"
   end
 
   option "without-python", "Build without Python support"
@@ -35,7 +31,7 @@ class PinocchioPython3 < Formula
   depends_on "hpp-fcl" => :recommended if build.with? "fcl"
 
   def install
-    if build.devel?
+    if build.head?
       system "git submodule update --init"
     end
 
