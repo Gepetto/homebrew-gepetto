@@ -15,6 +15,10 @@ class PinocchioPython3 < Formula
     sha256 "9ad4347a05e9ad1994489f35152a864498d63f938d1870c9aabc8c77378111d4" => :mojave
   end
 
+  devel do
+    url "https://github.com/stack-of-tasks/pinocchio.git", :branch => "devel"
+  end
+
   option "without-python", "Build without Python support"
   option "without-fcl", "Build without FCL support"
 

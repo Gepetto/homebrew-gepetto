@@ -15,13 +15,9 @@ class Pinocchio < Formula
     sha256 "8d334273e9cc6c2d0861105bbdfa1a90dd59f78b735bcb8f20ba9d5432c20afd" => :mojave
   end
 
-  #head do
-  #  url "https://github.com/jcarpent/pinocchio.git", :branch => "master"
-  #end
-
-  #devel do
-  #  url "https://github.com/jcarpent/pinocchio.git", :branch => "devel"
-  #end
+  devel do
+    url "https://github.com/stack-of-tasks/pinocchio.git", :branch => "devel"
+  end
 
   option "without-python", "Build without Python support"
   option "without-fcl", "Build without FCL support"
