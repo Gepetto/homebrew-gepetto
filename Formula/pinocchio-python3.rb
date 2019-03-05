@@ -33,6 +33,7 @@ class PinocchioPython3 < Formula
   def install
     if build.head?
       system "git submodule update --init"
+      system "git pull --unshallow --tags" 
     end
 
     pyver = Language::Python.major_minor_version "python3"

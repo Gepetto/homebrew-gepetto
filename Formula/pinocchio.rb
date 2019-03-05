@@ -33,6 +33,7 @@ class Pinocchio < Formula
   def install
     if build.head?
       system "git submodule update --init"
+      system "git pull --unshallow --tags" 
     end
 
     pyver = Language::Python.major_minor_version "python2"
@@ -45,6 +46,7 @@ class Pinocchio < Formula
       args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}m"
       args << "-DPYTHON_LIBRARY=#{py_prefix}/lib"
       args << "-DPYTHON_EXECUTABLE=#{py_prefix}/bin/python2"
+      args << "-DBUILD_UNIT_TESTS=OFF"
       system "cmake", "..", *args
       system "make"
       system "make", "install"
