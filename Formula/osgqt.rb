@@ -8,7 +8,8 @@ class Osgqt < Formula
     cellar :any
     root_url "https://github.com/jcarpent/osgQt/releases/download/3.5.7"
 
-    sha256 "a28243358333aa75ee2ac7358d59c18c42ff67de8a2815f742fd49cb331a56f4" => :high_sierra
+    rebuild 1
+    sha256 "c7e2e7b6954d0c0aef21bc17a722e5eaac7b511d7a6ac94d3118f6aab5e4df24" => :mojave
   end
 
   option "with-docs", "Build the documentation with Doxygen"
@@ -16,8 +17,8 @@ class Osgqt < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
-  depends_on "open-scene-graph"
-  depends_on "qt@4"
+  depends_on "gepetto/gepetto/open-scene-graph-with-colladadom"
+  depends_on "qt"
 
   depends_on "doxygen" => :build if build.with? "docs"
 
@@ -27,13 +28,7 @@ class Osgqt < Formula
     args = std_cmake_args
     args << "-DBUILD_DOCUMENTATION=" + (build.with?("docs") ? "ON" : "OFF")
 
-    if MacOS.prefer_64_bit?
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.arch_64_bit}"
-    else
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.arch_32_bit}"
-    end
-
-    args << "-DCMAKE_PREFIX_PATH=#{Formula["qt@4"].opt_prefix}"
+    args << "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_prefix}"
 
     mkdir "build" do
       system "cmake", "..", *args
