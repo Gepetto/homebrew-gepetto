@@ -11,7 +11,7 @@ class Pinocchio < Formula
   end
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.0/pinocchio-2.1.0.mojave.bottle.tar.gz"
+    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.0"
     sha256 "8d334273e9cc6c2d0861105bbdfa1a90dd59f78b735bcb8f20ba9d5432c20afd" => :mojave
   end
 
