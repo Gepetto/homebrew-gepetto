@@ -46,7 +46,7 @@ class OpenSceneGraphWithColladadom < Formula
     ]
 
     args << "-DCMAKE_DISABLE_FIND_PACKAGE_COLLADA=OFF"
-    args << "-DCOLLADA_INCLUDE_DIR=#{Formula["collada-dom"].opt_include}/collada-dom2.4"
+    args << "-DCOLLADA_INCLUDE_DIR=#{Formula["collada-dom"].opt_include}/collada-dom2.5"
 
     mkdir "build" do
       system "cmake", "..", *args
