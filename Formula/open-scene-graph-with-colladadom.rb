@@ -8,8 +8,9 @@ class OpenSceneGraphWithColladadom < Formula
   conflicts_with "open-scene-graph", :because => "open-scene-graph also provides the same binaries"
 
   bottle do
-    root_url "https://github.com/Gepetto/OpenSceneGraph/releases/download/OpenSceneGraph-3.6.3"
-    sha256 "c518ccffd1dc62a8f187ff79ada2f32199bcc51a87c32d6a415c38a74ff7fad6" => :mojave
+    root_url "https://homebrew.bintray.com/bottles-gepetto"
+    rebuild 1
+    sha256 "4b2ed2063cc163a566dbe77ef74c5c8a7ae8e36e00b946f23b0b02ede944980e" => :mojave
   end
 
   depends_on "cmake" => :build
