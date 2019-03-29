@@ -4,15 +4,15 @@ class PinocchioPython3 < Formula
   head "https://github.com/stack-of-tasks/pinocchio.git", :branch => "devel"
 
   stable do
-    url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.0/pinocchio-2.1.0.tar.gz"
-    sha256 "72c9690e3da92a06d96d7a04dad4e081318c0c5070ad1316d82ab5c204297139"
+    url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.1/pinocchio-2.1.1.tar.gz"
+    sha256 "b2fca65f65c4ea676bd3b1fba4beb2bbdf2c63d47ca478750eb73291da8471b9"
 
     patch :DATA
   end
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.0"
-    sha256 "9ad4347a05e9ad1994489f35152a864498d63f938d1870c9aabc8c77378111d4" => :mojave
+    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.1"
+    sha256 "8b6ce6f2c87be2050a9fe18d6245685ee77c7ebc33928575cdd3c9c5d5778cd8" => :mojave
   end
 
   option "without-python", "Build without Python support"
