@@ -3,12 +3,17 @@ class PinocchioPython3 < Formula
   homepage "https://stack-of-tasks.github.io/pinocchio"
   head "https://github.com/stack-of-tasks/pinocchio.git", :branch => "devel"
 
-  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.4/pinocchio-2.1.4.tar.gz"
-  sha256 "d0701b0ba115251700d9e6a04657392f1f72eed21d9bdd1be7a54c6f6112ea97"
+  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.5/pinocchio-2.1.5.tar.gz"
+  sha256 "773c0cb037c1fbddda4668dd357d65cd6914566462b4faf5f37295964e35c996"
+
+  patch do
+    url "https://github.com/jcarpent/pinocchio/commit/18d51c3ce0a081be509d0bead383004360aa44fd.diff\?full_index\=1"
+    sha256 "e594851aba1b5c21a4e04b23d6c0b56790177daeddf5b3f24b924a468b8df313"
+  end 
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.4"
-    sha256 "dfbf3dbe6528ee9b6ca3da7e4968293d2e4c9b1fdc97bd74a0c5deb26dec9e81" => :mojave
+    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.5"
+    sha256 "68661edd1e0a039ff5dd0615ad5d5ecdb583a4763631fc43de9daef2c3bb233f" => :mojave
   end
 
   option "without-python", "Build without Python support"
@@ -42,6 +47,7 @@ class PinocchioPython3 < Formula
       args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}m"
       args << "-DPYTHON_LIBRARY=#{py_prefix}/lib"
       args << "-DPYTHON_EXECUTABLE=#{py_prefix}/bin/python#{pyver}"
+      args << "-DBUILD_WITH_COLLISION_SUPPORT=ON"
       system "cmake", "..", *args
       system "make"
       system "make", "install"
@@ -52,4 +58,3 @@ class PinocchioPython3 < Formula
     system "false"
   end
 end
-__END__
