@@ -4,15 +4,18 @@ class Pinocchio < Formula
   head "https://github.com/stack-of-tasks/pinocchio.git", :branch => "devel"
 
   stable do
-    url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.4/pinocchio-2.1.4.tar.gz"
-    sha256 "d0701b0ba115251700d9e6a04657392f1f72eed21d9bdd1be7a54c6f6112ea97"
-    
-    patch :DATA
+    url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.5/pinocchio-2.1.5.tar.gz"
+    sha256 "773c0cb037c1fbddda4668dd357d65cd6914566462b4faf5f37295964e35c996"
+  end
+
+  patch do
+    url "https://github.com/jcarpent/pinocchio/commit/18d51c3ce0a081be509d0bead383004360aa44fd.diff\?full_index\=1"
+    sha256 "e594851aba1b5c21a4e04b23d6c0b56790177daeddf5b3f24b924a468b8df313"
   end
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.4"
-    sha256 "e3c18256331b22d54201b85aad5eae0077f0c0e0b51b1a08436f1f38f2cb27b5" => :mojave
+    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.5"
+    sha256 "f14dea646c1786f897a13252564f497c0af623aee9e2027e4d627d409806faef" => :mojave
   end
 
   option "without-python", "Build without Python support"
@@ -47,6 +50,7 @@ class Pinocchio < Formula
       args << "-DPYTHON_LIBRARY=#{py_prefix}/lib"
       args << "-DPYTHON_EXECUTABLE=#{py_prefix}/bin/python2"
       args << "-DBUILD_UNIT_TESTS=OFF"
+      args << "-DBUILD_WITH_COLLISION_SUPPORT=ON"
       system "cmake", "..", *args
       system "make"
       system "make", "install"
@@ -57,4 +61,3 @@ class Pinocchio < Formula
     system "false"
   end
 end
-__END__
