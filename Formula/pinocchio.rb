@@ -4,18 +4,13 @@ class Pinocchio < Formula
   head "https://github.com/stack-of-tasks/pinocchio.git", :branch => "devel"
 
   stable do
-    url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.5/pinocchio-2.1.5.tar.gz"
-    sha256 "773c0cb037c1fbddda4668dd357d65cd6914566462b4faf5f37295964e35c996"
-  end
-
-  patch do
-    url "https://github.com/jcarpent/pinocchio/commit/18d51c3ce0a081be509d0bead383004360aa44fd.diff\?full_index\=1"
-    sha256 "e594851aba1b5c21a4e04b23d6c0b56790177daeddf5b3f24b924a468b8df313"
+    url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.8/pinocchio-2.1.8.tar.gz"
+    sha256 "cd62d68574563ccd26d196e41f4eaf202937ac53ddf5dd48d4f088696db505e2"
   end
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.5"
-    sha256 "f14dea646c1786f897a13252564f497c0af623aee9e2027e4d627d409806faef" => :mojave
+    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.8"
+    sha256 "bc0cf7eb34193a0561e71d8c0c3f2f35938cd34e3f456e14beecc11abd623a5f" => :mojave
   end
 
   option "without-python", "Build without Python support"
@@ -46,7 +41,7 @@ class Pinocchio < Formula
       args = *std_cmake_args
       args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
       args << "-DCMAKE_BUILD_TYPE=Release"
-      args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}m"
+      args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}"
       args << "-DPYTHON_LIBRARY=#{py_prefix}/lib"
       args << "-DPYTHON_EXECUTABLE=#{py_prefix}/bin/python2"
       args << "-DBUILD_UNIT_TESTS=OFF"
