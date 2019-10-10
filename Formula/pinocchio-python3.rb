@@ -3,12 +3,12 @@ class PinocchioPython3 < Formula
   homepage "https://stack-of-tasks.github.io/pinocchio"
   head "https://github.com/stack-of-tasks/pinocchio.git", :branch => "devel"
 
-  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.8/pinocchio-2.1.8.tar.gz"
-  sha256 "cd62d68574563ccd26d196e41f4eaf202937ac53ddf5dd48d4f088696db505e2"
+  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.9/pinocchio-2.1.9.tar.gz"
+  sha256 "c694a9cd0669258a9655b4b45c283547eab40a7a86c8717b163c811fc351c12d"
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.8"
-    sha256 "5d7a05407c472d2b46c50a29278d8e61c3170d618aae17810a4b7a923d404c79" => :mojave
+    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.9"
+    sha256 "e7dd1bfe4e3ec414ffd8974a9a9070e9fff873a75f968e0f5d7544a0c887ad55" => :mojave
   end
 
   option "without-python", "Build without Python support"
