@@ -3,14 +3,12 @@ class Pinocchio < Formula
   homepage "https://stack-of-tasks.github.io/pinocchio"
   head "https://github.com/stack-of-tasks/pinocchio.git", :branch => "devel"
 
-  stable do
-    url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.11/pinocchio-2.1.11.tar.gz"
-    sha256 "b3f8ffbe4fc29c556e1bcfd93dcb1ff1d1e13f5a20bd6c2133e2a084ae668776"
-  end
+  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.2.0/pinocchio-2.2.0.tar.gz"
+  sha256 "0bbef3ef0e8c7aa623b1ca15f4acf6d360f07897e9c0c9b1c9fdaf0b44c9e8c5"
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.11"
-    sha256 "c0d38e13cfa30f92e01f01cdfc1e4ef25f72ff13aa440e8522932e0673514420" => :mojave
+    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.2.0"
+    sha256 "8d8a948619e89ed06f164b06f6276cfb86d41a44f00d90f1ee5328f9f0e9f145" => :mojave
   end
 
   option "without-python", "Build without Python support"
@@ -21,11 +19,10 @@ class Pinocchio < Formula
   depends_on "doxygen" => :build
   depends_on "boost"
   depends_on "eigen"
-  depends_on "boost-python" => :recommended if build.with? "python"
   depends_on "urdfdom" => :recommended
+  depends_on "boost-python" => :recommended if build.with? "python"
   depends_on "eigenpy" => :recommended if build.with? "python"
   depends_on "python@2" => :recommended if build.with? "python"
-  depends_on "numpy" => :recommended if build.with? "python"
   depends_on "hpp-fcl" => :recommended if build.with? "fcl"
 
   def install
