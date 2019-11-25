@@ -3,12 +3,12 @@ class PinocchioPython3 < Formula
   homepage "https://stack-of-tasks.github.io/pinocchio"
   head "https://github.com/stack-of-tasks/pinocchio.git", :branch => "devel"
 
-  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.11/pinocchio-2.1.11.tar.gz"
-  sha256 "b3f8ffbe4fc29c556e1bcfd93dcb1ff1d1e13f5a20bd6c2133e2a084ae668776"
+  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.2.0/pinocchio-2.2.0.tar.gz"
+  sha256 "0bbef3ef0e8c7aa623b1ca15f4acf6d360f07897e9c0c9b1c9fdaf0b44c9e8c5"
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.1.11"
-    sha256 "3ea316ae6db0d055a93a1a4e5fc9d0c91155b4c2df1290f7ed6a81379b79d7c7" => :mojave
+    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.2.0"
+    sha256 "ff2e32fc4c74b2d1af3cad184e846e1905737ed6a275aa8d0303834ed308626a" => :mojave
   end
 
   option "without-python", "Build without Python support"
@@ -24,7 +24,7 @@ class PinocchioPython3 < Formula
   depends_on "eigenpy-python3" => :recommended if build.with? "python"
   depends_on "python" => :recommended if build.with? "python"
   depends_on "numpy" => :recommended if build.with? "python"
-  depends_on "hpp-fcl" => :recommended if build.with? "fcl"
+  depends_on "hpp-fcl-python3" => :recommended if build.with? "fcl"
 
   def install
     if build.head?
