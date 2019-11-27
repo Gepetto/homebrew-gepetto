@@ -9,8 +9,9 @@ class GepettoViewerCorbaPython3 < Formula
   end
 
   bottle do
+    rebuild 1
     root_url "https://github.com/humanoid-path-planner/gepetto-viewer-corba/releases/download/v5.1.3"
-    sha256 "2ed451345a74c416bc32605448747e6b9f7868b69d443d10afcd63fa3ccb5bee" => :mojave
+    sha256 "44c5c12bc3da13c7685e4ba85eefce12fe8de9763becaaa2cc3b2913936a6a97" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -35,7 +36,9 @@ class GepettoViewerCorbaPython3 < Formula
       args = *std_cmake_args
       args << "-DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_bin}"
       args << "-DCMAKE_PREFIX_PATH=#{Formula["osgqt"].opt_prefix}/lib/pkgconfig"
+      args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}"
       args << "-DPYTHON_LIBRARY=#{py_prefix}/lib"
+      args << "-DPYTHON_EXECUTABLE=#{py_prefix}/bin/python#{pyver}"
       args << "-DBUILD_UNIT_TESTS=OFF"
       system "cmake", "..", *args
       system "make"
