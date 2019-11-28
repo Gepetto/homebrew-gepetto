@@ -1,17 +1,12 @@
 class GepettoViewerCorbaPython3 < Formula
   desc "Graphical Interface for Pinocchio and HPP"
-  homepage "https://github.com/humanoid-path-planner/gepetto-viewer-corba"
-  url "https://github.com/humanoid-path-planner/gepetto-viewer-corba"
-
-  stable do
-    url "https://github.com/humanoid-path-planner/gepetto-viewer-corba/releases/download/v5.1.3/gepetto-viewer-corba-5.1.3.tar.gz"
-    sha256 "ff774b69b0d28021db5f1a6285bbab2f0ef2cd09babc0847e3e7a4b977370e9b"
-  end
+  homepage "https://github.com/Gepetto/gepetto-viewer-corba"
+  url "https://github.com/Gepetto/gepetto-viewer-corba/releases/download/v5.3.2/gepetto-viewer-corba-5.3.2.tar.gz"
+  sha256 "272ace849a2d9eaa68788e9b46880ccf4f97cf033ac6cc20687ed453ceb72e94"
 
   bottle do
-    rebuild 1
-    root_url "https://github.com/humanoid-path-planner/gepetto-viewer-corba/releases/download/v5.1.3"
-    sha256 "44c5c12bc3da13c7685e4ba85eefce12fe8de9763becaaa2cc3b2913936a6a97" => :mojave
+    root_url "https://github.com/Gepetto/gepetto-viewer-corba/releases/download/v5.3.2"
+    sha256 "350fd8ca88cd1bd5dc58231f308799b7b55f39cabd69022a0c7787c8ea63f6da" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -20,9 +15,10 @@ class GepettoViewerCorbaPython3 < Formula
   depends_on "boost"
   depends_on "qt"
   depends_on "omniorb"
+  depends_on "omniorbpy"
   depends_on "gepetto-viewer"
   depends_on "osgqt"
-  depends_on "python3" => :recommended if build.with? "python"
+  depends_on "python3"
 
   def install
     if build.devel?
