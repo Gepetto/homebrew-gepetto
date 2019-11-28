@@ -6,6 +6,8 @@ class Omniorbpy < Formula
 
   bottle do
     cellar :any
+    root_url "https://github.com/Gepetto/omniORBpy/releases/download/v4.2.3"
+    sha256 "e3d01c03cad7edb7ec11dd199b91b23f9d9c38fcd19e35b294741c509ebf4200" => :mojave
   end
 
   depends_on "pkg-config" => :build
