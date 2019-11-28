@@ -50,7 +50,7 @@ class Osgqt < Formula
           return 0;
         }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{Formula["open-scene-graph"].opt_lib}/", "-losg", "-L#{lib}", "-losgqt", "-o", "test"
+    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{Formula["open-scene-graph-with-colladadom"].opt_lib}/", "-losg", "-L#{lib}", "-losgqt", "-o", "test"
     system "./test"
   end
 end
