@@ -1,16 +1,12 @@
 class GepettoViewerCorba < Formula
   desc "Graphical Interface for Pinocchio and HPP"
-  homepage "https://github.com/humanoid-path-planner/gepetto-viewer-corba"
-  url "https://github.com/humanoid-path-planner/gepetto-viewer-corba"
-
-  stable do
-    url "https://github.com/humanoid-path-planner/gepetto-viewer-corba/releases/download/v5.1.3/gepetto-viewer-corba-5.1.3.tar.gz"
-    sha256 "ff774b69b0d28021db5f1a6285bbab2f0ef2cd09babc0847e3e7a4b977370e9b"
-  end
+  homepage "https://github.com/Gepetto/gepetto-viewer-corba"
+  url "https://github.com/Gepetto/gepetto-viewer-corba/releases/download/v5.3.2/gepetto-viewer-corba-5.3.2.tar.gz"
+  sha256 "272ace849a2d9eaa68788e9b46880ccf4f97cf033ac6cc20687ed453ceb72e94"
 
   bottle do
-    root_url "https://github.com/humanoid-path-planner/gepetto-viewer-corba/releases/download/v5.1.3"
-    sha256 "f820c2ec61e940c8e6d1b9d9d645fd74d14a8438d58da6e2b14f0928b39ab205" => :mojave
+    root_url "https://github.com/Gepetto/gepetto-viewer-corba/releases/download/v5.3.2"
+    sha256 "359495e7c1756aa80274994151980b30d444bc2ca1b85ae887174a10ffd007b0" => :mojave
   end
 
   depends_on "cmake" => :build
