@@ -6,8 +6,9 @@ class Eigenpy < Formula
   head "https://github.com/stack-of-tasks/eigenpy.git", :branch => "devel"
 
   bottle do
+    rebuild 1
     root_url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.6.8"
-    sha256 "a8c3611819214feafd90187b5897d25a5aa8feb60e7a6419d763d0d4fc86e237" => :mojave
+    sha256 "19e14ab376b10637312fe7485a66dcec2e20974ce3cc12717be47794fbb75938" => :mojave
   end
 
   depends_on :xcode => :build
@@ -16,12 +17,13 @@ class Eigenpy < Formula
   depends_on "doxygen" => :build
   depends_on "eigen"
   depends_on "boost-python"
-  depends_on "numpy"
+  depends_on "numpy@1.16"
   depends_on "python@2"
 
   def install
     pyver = Language::Python.major_minor_version "python2"
     py_prefix = Formula["python2"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    ENV.prepend_path "PYTHONPATH", Formula["numpy@1.16"].opt_lib/"python#{pyver}/site-packages"
     mkdir "build" do
       args = *std_cmake_args
       args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}"
