@@ -1,16 +1,16 @@
 class HppFclPython3 < Formula
   desc "An extension of the Flexible Collision Library"
   homepage "https://github.com/humanoid-path-planner/hpp-fcl"
-  url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.2.1/hpp-fcl-1.2.1.tar.gz"
-  sha256 "5c540cf2e695116fc9541733067ac2a0e01a4fe643071cd6cbd8434e52367e48"
+  url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.2.2/hpp-fcl-1.2.2.tar.gz"
+  sha256 "2b60468f137e0045c60d8561836f6c714838cf891369ec96d5ed945ad824b6f2"
 
   head "https://github.com/humanoid-path-planner/hpp-fcl", :branch => "master"
 
   option "without-python", "Build without Python support"
 
   bottle do
-    root_url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.2.1"
-    sha256 "4b54ef01050ec1a10937c4ddce4e449064ba82b40e20df3d2b6a1f3420b7964e" => :mojave
+    root_url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.2.2"
+    sha256 "5f2aea8304e967e9fdb1fc4c967cddd676fd286d6e576b1c79a64a9ff64243aa" => :mojave
   end 
 
   depends_on "cmake" => :build
