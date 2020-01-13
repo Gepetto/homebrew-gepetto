@@ -1,8 +1,8 @@
 class EigenpyPython3 < Formula
   desc "Python bindings of Eigen library with Numpy support."
   homepage "https://github.com/stack-of-tasks/eigenpy"
-  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.6.12/eigenpy-1.6.12.tar.gz"
-  sha256 "1f39382acacc8876fa164b3f319767811a709f0a27a7be5e1c79324f59e39cc1"
+  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.6.13/eigenpy-1.6.13.tar.gz"
+  sha256 "34807b837aae9d7388c546aa7d75a7a7c78242a15b44cad6e548d5e3d81a26a5"
   head "https://github.com/stack-of-tasks/eigenpy.git", :branch => "devel"
 
   depends_on :xcode => :build
@@ -15,8 +15,8 @@ class EigenpyPython3 < Formula
   depends_on "python"
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.6.12"
-    sha256 "8a57d59878a71dee1b9f22e23586b7cbd965a1c92ac2485fdd996e91e551a149" => :mojave
+    root_url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.6.13"
+    sha256 "5a6b19914197c256709156cdd5a5ec3187052b36c208006157f6219ca186e90a" => :mojave
   end
 
   def install
