@@ -1,6 +1,7 @@
 class GepettoViewer < Formula
   desc "Graphical Interface for Pinocchio and HPP"
   homepage "https://github.com/Gepetto/gepetto-viewer"
+  head "https://github.com/Gepetto/gepetto-viewer.git", :branch => "devel"
 
   url "https://github.com/Gepetto/gepetto-viewer/releases/download/v4.8.0/gepetto-viewer-4.8.0.tar.gz"
   sha256 "5b27c3885987d5ab3b7d84b361a3ae75e4d13cf91461cc90919091ede9dbb061"
