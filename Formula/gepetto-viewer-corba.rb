@@ -23,7 +23,7 @@ class GepettoViewerCorba < Formula
 
   def install
     if build.head?
-      system "git pull --tags"
+      system "git fetch --unshallow --tags"
     end
     
     pyver = Language::Python.major_minor_version "python2"

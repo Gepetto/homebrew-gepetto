@@ -23,7 +23,7 @@ class GepettoViewer < Formula
 
   def install
     if build.head?
-      system "git pull --tags"
+      system "git fetch --unshallow --tags"
     end
     mkdir "build" do
       args = *std_cmake_args
