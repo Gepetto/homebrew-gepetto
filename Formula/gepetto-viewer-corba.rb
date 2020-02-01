@@ -3,6 +3,7 @@ class GepettoViewerCorba < Formula
   homepage "https://github.com/Gepetto/gepetto-viewer-corba"
   url "https://github.com/Gepetto/gepetto-viewer-corba/releases/download/v5.3.2/gepetto-viewer-corba-5.3.2.tar.gz"
   sha256 "272ace849a2d9eaa68788e9b46880ccf4f97cf033ac6cc20687ed453ceb72e94"
+  head "https://github.com/Gepetto/gepetto-viewer-corba.git", :branch => "devel"
 
   bottle do
     root_url "https://github.com/Gepetto/gepetto-viewer-corba/releases/download/v5.3.2"
