@@ -22,8 +22,8 @@ class GepettoViewerCorba < Formula
   depends_on "python@2" => :recommended if build.with? "python"
 
   def install
-    if build.devel?
-      system "git submodule cmake update --init"
+    if build.head?
+      system "git pull --tags"
     end
     
     pyver = Language::Python.major_minor_version "python2"

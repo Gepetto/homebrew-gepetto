@@ -23,8 +23,8 @@ class GepettoViewerCorbaPython3 < Formula
   depends_on "python3"
 
   def install
-    if build.devel?
-      system "git submodule cmake update --init"
+    if build.head?
+      system "git pull --tags"
     end
     
     pyver = Language::Python.major_minor_version "python3"

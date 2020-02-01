@@ -22,8 +22,8 @@ class GepettoViewer < Formula
   depends_on :x11
 
   def install
-    if build.devel?
-      system "git submodule cmake update --init"
+    if build.head?
+      system "git pull --tags"
     end
     mkdir "build" do
       args = *std_cmake_args
