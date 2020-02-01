@@ -6,7 +6,8 @@ class GepettoViewerCorba < Formula
 
   bottle do
     root_url "https://github.com/Gepetto/gepetto-viewer-corba/releases/download/v5.3.2"
-    sha256 "359495e7c1756aa80274994151980b30d444bc2ca1b85ae887174a10ffd007b0" => :mojave
+    rebuild 1
+    sha256 "9b41d82311f02d599cc1c2efd914997962f05858515b6c92ca4a793561bc0d17" => :mojave
   end
 
   depends_on "cmake" => :build
