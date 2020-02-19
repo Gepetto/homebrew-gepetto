@@ -1,14 +1,14 @@
-class PinocchioPython3 < Formula
+class Pinocchio < Formula
   desc "An efficient and fast C++ library implementing Rigid Body Dynamics algorithms"
   homepage "https://stack-of-tasks.github.io/pinocchio"
   head "https://github.com/stack-of-tasks/pinocchio.git", :branch => "devel"
 
-  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.2.2/pinocchio-2.2.2.tar.gz"
-  sha256 "7b3be78fc1939dd47265e49e4e211deaeaa6ca50f42ab75e63df8fc83647a137"
+  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.3.0/pinocchio-2.3.0.tar.gz"
+  sha256 "9bab5178096497e900a76bc4e88ad65bfb143256b719a35f3fc16a00a6a4dc49"
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.2.2"
-    sha256 "0a424af85092c7b024fa6608921164640d6c3e8b1960ad4942cf3c718a38227b" => :mojave
+    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.3.0"
+    sha256 "3421d4b6df672646fb9db92991abac3e2a0b3b9b61799cadceef999841acd8cf" => :mojave
   end
 
   option "without-python", "Build without Python support"
@@ -39,10 +39,9 @@ class PinocchioPython3 < Formula
       args = *std_cmake_args
       args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
       args << "-DCMAKE_BUILD_TYPE=Release"
-      args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}"
-      args << "-DPYTHON_LIBRARY=#{py_prefix}/lib"
       args << "-DPYTHON_EXECUTABLE=#{py_prefix}/bin/python#{pyver}"
       args << "-DBUILD_WITH_COLLISION_SUPPORT=ON"
+      args << "-DBUILD_UNIT_TESTS=OFF"
       system "cmake", "..", *args
       system "make"
       system "make", "install"
