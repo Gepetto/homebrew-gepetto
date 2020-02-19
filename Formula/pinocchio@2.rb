@@ -1,14 +1,14 @@
-class Pinocchio < Formula
+class PinocchioAT2 < Formula
   desc "An efficient and fast C++ library implementing Rigid Body Dynamics algorithms"
   homepage "https://stack-of-tasks.github.io/pinocchio"
   head "https://github.com/stack-of-tasks/pinocchio.git", :branch => "devel"
 
-  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.2.2/pinocchio-2.2.2.tar.gz"
-  sha256 "7b3be78fc1939dd47265e49e4e211deaeaa6ca50f42ab75e63df8fc83647a137"
+  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.3.0/pinocchio-2.3.0.tar.gz"
+  sha256 "9bab5178096497e900a76bc4e88ad65bfb143256b719a35f3fc16a00a6a4dc49"
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.2.2"
-    sha256 "89571db5ff48d119a9f51c9c4f37a10ae0b8f5e333d55a28380609983156801f" => :mojave
+    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.3.0"
+    sha256 "2b50ddc989f67ac450d8770c7549e9632b3f4327f07d46ad1177923344852278" => :mojave
   end
 
   option "without-python", "Build without Python support"
@@ -32,14 +32,12 @@ class Pinocchio < Formula
     end
 
     pyver = Language::Python.major_minor_version "python2"
-    py_prefix = Formula["python2"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    py_prefix = Formula["python@2"].opt_frameworks/"Python.framework/Versions/#{pyver}"
     
     mkdir "build" do
       args = *std_cmake_args
       args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
       args << "-DCMAKE_BUILD_TYPE=Release"
-      args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}"
-      args << "-DPYTHON_LIBRARY=#{py_prefix}/lib"
       args << "-DPYTHON_EXECUTABLE=#{py_prefix}/bin/python2"
       args << "-DBUILD_UNIT_TESTS=OFF"
       args << "-DBUILD_WITH_COLLISION_SUPPORT=ON"
