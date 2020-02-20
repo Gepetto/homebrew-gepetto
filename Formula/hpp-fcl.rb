@@ -1,16 +1,16 @@
-class HppFclPython3 < Formula
+class HppFcl < Formula
   desc "An extension of the Flexible Collision Library"
   homepage "https://github.com/humanoid-path-planner/hpp-fcl"
-  url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.2.2/hpp-fcl-1.2.2.tar.gz"
-  sha256 "2b60468f137e0045c60d8561836f6c714838cf891369ec96d5ed945ad824b6f2"
+  url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.3.0/hpp-fcl-1.3.0.tar.gz"
+  sha256 "ffdd5487ef93ba0ac190807d1ef71528e380803a46a69204916944f5df82b218"
 
   head "https://github.com/humanoid-path-planner/hpp-fcl", :branch => "master"
 
   option "without-python", "Build without Python support"
 
   bottle do
-    root_url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.2.2"
-    sha256 "5f2aea8304e967e9fdb1fc4c967cddd676fd286d6e576b1c79a64a9ff64243aa" => :mojave
+    root_url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.3.0"
+    sha256 "77cc8ded656ae2368bf51d879604ff488f41e1ae31c4c7ab054df8e63e353e91" => :mojave
   end 
 
   depends_on "cmake" => :build
@@ -36,10 +36,6 @@ class HppFclPython3 < Formula
 
     mkdir "build" do
       args = *std_cmake_args
-      args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
-      args << "-DBUILD_PYTHON_INTERFACE=ON"
-      args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}"
-      args << "-DPYTHON_LIBRARY=#{py_prefix}/lib"
       args << "-DPYTHON_EXECUTABLE=#{py_prefix}/bin/python#{pyver}"
 
       system "cmake", "..", *args
