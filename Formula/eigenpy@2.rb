@@ -1,13 +1,13 @@
-class Eigenpy < Formula
+class EigenpyAT2 < Formula
   desc "Python bindings of Eigen library with Numpy support."
   homepage "https://github.com/stack-of-tasks/eigenpy"
-  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.6.13/eigenpy-1.6.13.tar.gz"
-  sha256 "34807b837aae9d7388c546aa7d75a7a7c78242a15b44cad6e548d5e3d81a26a5"
+  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.0.3/eigenpy-2.0.3.tar.gz"
+  sha256 "cc9a060977c10b0f0b1b34deed1ffcceee63459d30884c5bbd4b48c4c19f5ab7"
   head "https://github.com/stack-of-tasks/eigenpy.git", :branch => "devel"
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.6.13"
-    sha256 "0dfd9793dad1e0d600bc4101a7d410a1119dcf78740bb04690570cbcda05c25a" => :mojave
+    root_url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.0.3"
+    sha256 "ac4af5f3160495ef37d6cc87c3d1fb37316a5f28a722eaec85125244db2d8383" => :mojave
   end
 
   depends_on :xcode => :build
@@ -25,9 +25,8 @@ class Eigenpy < Formula
     ENV.prepend_path "PYTHONPATH", Formula["numpy@1.16"].opt_lib/"python#{pyver}/site-packages"
     mkdir "build" do
       args = *std_cmake_args
-      args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}"
-      args << "-DPYTHON_LIBRARY=#{py_prefix}/lib"
       args << "-DPYTHON_EXECUTABLE=#{py_prefix}/bin/python2"
+      args << "-DBUILD_UNIT_TESTS=OFF"
       system "cmake", "..", *args
       system "make"
       system "make", "install"
