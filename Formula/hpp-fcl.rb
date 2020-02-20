@@ -10,7 +10,8 @@ class HppFcl < Formula
 
   bottle do
     root_url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.3.0"
-    sha256 "77cc8ded656ae2368bf51d879604ff488f41e1ae31c4c7ab054df8e63e353e91" => :mojave
+    rebuild 1
+    sha256 "0487c380eb54d4d4acd1d2309e3c29a773e8ccc574fa836f52a9af34ea8ed3d7" => :mojave
   end 
 
   depends_on "cmake" => :build
@@ -22,7 +23,7 @@ class HppFcl < Formula
   depends_on "boost"
   depends_on "brewsci/homebrew-science/cddlib"
   depends_on "boost-python3" => :recommended if build.with? "python"
-  depends_on "eigenpy-python3" => :recommended if build.with? "python"
+  depends_on "eigenpy" => :recommended if build.with? "python"
   depends_on "python" => :recommended if build.with? "python"
 
   def install
