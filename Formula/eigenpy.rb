@@ -21,7 +21,7 @@ class Eigenpy < Formula
 
   def install
     pyver = Language::Python.major_minor_version "python2"
-    py_prefix = Formula["python2"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    py_prefix = Formula["python@2"].opt_frameworks/"Python.framework/Versions/#{pyver}"
     ENV.prepend_path "PYTHONPATH", Formula["numpy@1.16"].opt_lib/"python#{pyver}/site-packages"
     mkdir "build" do
       args = *std_cmake_args
