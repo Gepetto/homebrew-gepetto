@@ -7,7 +7,8 @@ class Pinocchio < Formula
 
   bottle do
     root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.3.1"
-    sha256 "719271801dc15ced7fc907a0ce0730ba137f5539f0af4fd58c8a527698360875" => :mojave
+    rebuild 1
+    sha256 "ec1d09c61421f6bb91c7867f55d4036916835a99032a10d3724fab37ae39693e" => :mojave
   end
 
   option "without-python", "Build without Python support"
