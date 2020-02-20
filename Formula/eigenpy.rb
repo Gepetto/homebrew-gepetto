@@ -1,8 +1,8 @@
-class EigenpyPython3 < Formula
+class Eigenpy < Formula
   desc "Python bindings of Eigen library with Numpy support."
   homepage "https://github.com/stack-of-tasks/eigenpy"
-  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.6.13/eigenpy-1.6.13.tar.gz"
-  sha256 "34807b837aae9d7388c546aa7d75a7a7c78242a15b44cad6e548d5e3d81a26a5"
+  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.0.3/eigenpy-2.0.3.tar.gz"
+  sha256 "cc9a060977c10b0f0b1b34deed1ffcceee63459d30884c5bbd4b48c4c19f5ab7"
   head "https://github.com/stack-of-tasks/eigenpy.git", :branch => "devel"
 
   depends_on :xcode => :build
@@ -15,8 +15,8 @@ class EigenpyPython3 < Formula
   depends_on "python"
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/eigenpy/releases/download/v1.6.13"
-    sha256 "5a6b19914197c256709156cdd5a5ec3187052b36c208006157f6219ca186e90a" => :mojave
+    root_url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.0.3"
+    sha256 "a5da9bba4d0eaf35f88aa39e421470ef1a4881eea528b2382302956b73793e85" => :mojave
   end
 
   def install
@@ -26,11 +26,8 @@ class EigenpyPython3 < Formula
     
     mkdir "build" do
       args = *std_cmake_args
-      args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
-      args << "-DCMAKE_BUILD_TYPE=Release"
-      args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{pyver}m"
-      args << "-DPYTHON_LIBRARY=#{py_prefix}/lib"
       args << "-DPYTHON_EXECUTABLE=#{py_prefix}/bin/python#{pyver}"
+      args << "-DBUILD_UNIT_TESTS=OFF"
       system "cmake", "..", *args
       system "make"
       system "make", "install"
