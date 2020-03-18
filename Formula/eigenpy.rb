@@ -16,7 +16,8 @@ class Eigenpy < Formula
 
   bottle do
     root_url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.1.0"
-    sha256 "0728615f4f3160b054af6aa7bbcc119dc9e4285c29c61a56ca85affdea29deb3" => :mojave
+    rebuild 1
+    sha256 "debefe0eedd6de90e053e46d2246e0ff8b4f170683565c895e55425e2940f686" => :mojave
   end
 
   def install
