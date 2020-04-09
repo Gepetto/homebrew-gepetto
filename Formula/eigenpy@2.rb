@@ -15,7 +15,7 @@ class EigenpyAT2 < Formula
   depends_on "doxygen" => :build
   depends_on "eigen"
   depends_on "boost-python"
-  depends_on "numpy@1.16" => : build
+  depends_on "numpy@1.16" => :build
   depends_on "python@2"
 
   def install
