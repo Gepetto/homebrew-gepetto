@@ -1,28 +1,28 @@
 class Eigenpy < Formula
   desc "Python bindings of Eigen library with Numpy support."
   homepage "https://github.com/stack-of-tasks/eigenpy"
-  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.2.0/eigenpy-2.2.0.tar.gz"
-  sha256 "4a1b973715319596b1ae137f72d33afd9dc6319bd6ddba4ad05a47116ec3277c" 
+  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.3.1/eigenpy-2.3.1.tar.gz"
+  sha256 "d8f3c642950751d7220899de84efd5009ab928838284440527f1bd09ed1697e4"
   head "https://github.com/stack-of-tasks/eigenpy.git", :branch => "devel"
 
-  depends_on :xcode => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "doxygen" => :build
+  depends_on "numpy" => :build
   depends_on "eigen"
   depends_on "boost-python3"
-  depends_on "numpy"
-  depends_on "python"
+  depends_on "python@3.8"
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.2.0"
-    sha256 "d26b492b8cecb8a78e1c2c8d5380c05d342fdbc8c4de92edaf9046da338b6657" => :mojave
+    root_url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.3.1"
+    sha256 "3a603abe91147cd8e54dc21956db96653486a0e79597489c81304cf614ac703c" => :mojave
   end
 
   def install
     
-    pyver = Language::Python.major_minor_version "python3"
-    py_prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    pyver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    py_prefix = Formula["python@3.8"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    ENV.prepend_path "PYTHONPATH", Formula["numpy"].opt_lib/"python#{pyver}/site-packages"
     
     mkdir "build" do
       args = *std_cmake_args
