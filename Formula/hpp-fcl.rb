@@ -1,17 +1,16 @@
 class HppFcl < Formula
   desc "An extension of the Flexible Collision Library"
   homepage "https://github.com/humanoid-path-planner/hpp-fcl"
-  url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.3.0/hpp-fcl-1.3.0.tar.gz"
-  sha256 "ffdd5487ef93ba0ac190807d1ef71528e380803a46a69204916944f5df82b218"
+  url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.4.3/hpp-fcl-1.4.3.tar.gz"
+  sha256 "faff39bf63648383aad347845544c2713471d2195f1d1e4af083c92911c18580" 
 
-  head "https://github.com/humanoid-path-planner/hpp-fcl", :branch => "master"
+  head "https://github.com/humanoid-path-planner/hpp-fcl", :branch => "devel"
 
   option "without-python", "Build without Python support"
 
   bottle do
-    root_url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.3.0"
-    rebuild 2
-    sha256 "576af13857d4e7e05783187f4e358492042d31c1db84625dd591a7b8fe32298c" => :mojave
+    root_url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.4.3"
+    sha256 "d2bc827697065b6f3e17306a4e5d102a51f984c0711a9737cc2a6ad715f90402" => :mojave
   end 
 
   depends_on "cmake" => :build
@@ -24,7 +23,7 @@ class HppFcl < Formula
   depends_on "brewsci/homebrew-science/cddlib"
   depends_on "boost-python3" => :recommended if build.with? "python"
   depends_on "eigenpy" => :recommended if build.with? "python"
-  depends_on "python" => :recommended if build.with? "python"
+  depends_on "python@3.8" => :recommended if build.with? "python"
 
   def install
     if build.head?
@@ -32,12 +31,13 @@ class HppFcl < Formula
       system "git pull --unshallow --tags" 
     end 
 
-    pyver = Language::Python.major_minor_version "python3"
-    py_prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    pyver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    py_prefix = Formula["python@3.8"].opt_frameworks/"Python.framework/Versions/#{pyver}"
 
     mkdir "build" do
       args = *std_cmake_args
       args << "-DPYTHON_EXECUTABLE=#{py_prefix}/bin/python#{pyver}"
+      args << "-DBUILD_UNIT_TESTS=OFF"
 
       system "cmake", "..", *args
       system "make"
