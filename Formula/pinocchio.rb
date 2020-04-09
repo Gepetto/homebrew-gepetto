@@ -2,17 +2,16 @@ class Pinocchio < Formula
   desc "An efficient and fast C++ library implementing Rigid Body Dynamics algorithms"
   homepage "https://stack-of-tasks.github.io/pinocchio"
   head "https://github.com/stack-of-tasks/pinocchio.git", :branch => "devel"
-  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.3.1/pinocchio-2.3.1.tar.gz"
-  sha256 "7fe811176916927aa60e05efa8db3715187ea53263b73dc57391d9d237779382"
+  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.4.0/pinocchio-2.4.0.tar.gz"
+  sha256 "cdc8fe49c984f9a449a75ced5c18dae3ad5dc1bc6f4278725060f4f1601bfbf6"
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.3.1"
-    rebuild 2
-    sha256 "5957ae8171f64161cf1425a28f7117322e4014ce103f06c11c58813e77539fc6" => :mojave
+    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.4.0"
+    sha256 "632a133439179114c2c25b8ac376ebd71e86655fac8a9e1404ae7b71dbbf186b" => :mojave
   end
 
   option "without-python", "Build without Python support"
-  option "without-fcl", "Build without FCL support"
+  option "without-hpp-fcl", "Build without HPP-FCL support"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -22,9 +21,9 @@ class Pinocchio < Formula
   depends_on "boost-python3" => :recommended if build.with? "python"
   depends_on "urdfdom" => :recommended
   depends_on "eigenpy" => :recommended if build.with? "python"
-  depends_on "python" => :recommended if build.with? "python"
+  depends_on "python@3.8" => :recommended if build.with? "python"
   depends_on "numpy" => :recommended if build.with? "python"
-  depends_on "hpp-fcl" => :recommended if build.with? "fcl"
+  depends_on "hpp-fcl" => :recommended if build.with? "hpp-fcl"
 
   def install
     if build.head?
@@ -32,14 +31,15 @@ class Pinocchio < Formula
       system "git pull --unshallow --tags" 
     end
 
-    pyver = Language::Python.major_minor_version "python3"
-    py_prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    pyver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
+    py_prefix = Formula["python@3.8"].opt_frameworks/"Python.framework/Versions/#{pyver}"
     
     mkdir "build" do
       args = *std_cmake_args
       args << "-DPYTHON_EXECUTABLE=#{py_prefix}/bin/python#{pyver}"
       args << "-DBUILD_WITH_COLLISION_SUPPORT=ON"
       args << "-DBUILD_UNIT_TESTS=OFF"
+
       system "cmake", "..", *args
       system "make"
       system "make", "install"
