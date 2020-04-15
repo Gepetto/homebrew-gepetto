@@ -10,7 +10,8 @@ class HppFcl < Formula
 
   bottle do
     root_url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.4.3"
-    sha256 "d2bc827697065b6f3e17306a4e5d102a51f984c0711a9737cc2a6ad715f90402" => :mojave
+    rebuild 1
+    sha256 "52152191f8bc4f3fa7d4f9be00d068f0e35b532d9f957566baf79767eb656740" => :mojave
   end 
 
   depends_on "cmake" => :build
