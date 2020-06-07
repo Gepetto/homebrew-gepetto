@@ -2,12 +2,12 @@ class Pinocchio < Formula
   desc "An efficient and fast C++ library implementing Rigid Body Dynamics algorithms"
   homepage "https://stack-of-tasks.github.io/pinocchio"
   head "https://github.com/stack-of-tasks/pinocchio.git", :branch => "devel"
-  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.4.1/pinocchio-2.4.1.tar.gz"
-  sha256 "b0cecea25ec0cd354f148f71acbe7f083647dc6bcb80460e43086913ae0ae6bf"
+  url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.4.5/pinocchio-2.4.5.tar.gz"
+  sha256 "559fe0ffc969b4dca964525bbba69362dbec821dc216c6f9f2f71b33bcbc9fda"
 
   bottle do
-    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.4.1"
-    sha256 "de0ce4926dd54c71fb875b7cc55482567c1dd1c3ed1b84f4892cc94b6dec5d47" => :mojave
+    root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.4.5"
+    sha256 "93b7a18e17324d862fbd00432a56b01999ac0a2ac1805c9fa1f0bd6a34d32207" => :mojave
   end
 
   option "without-python", "Build without Python support"
