@@ -3,13 +3,12 @@ class GepettoViewer < Formula
   homepage "https://github.com/Gepetto/gepetto-viewer"
   head "https://github.com/Gepetto/gepetto-viewer.git", :branch => "devel"
 
-  url "https://github.com/Gepetto/gepetto-viewer/releases/download/v4.8.0/gepetto-viewer-4.8.0.tar.gz"
-  sha256 "5b27c3885987d5ab3b7d84b361a3ae75e4d13cf91461cc90919091ede9dbb061"
+  url "https://github.com/Gepetto/gepetto-viewer/releases/download/v4.9.0/gepetto-viewer-4.9.0.tar.gz"
+  sha256 "96ea07f6f99078d3a32fc29daea47ce5ad39acb5e5f0c4f65e33850ed0d4d27b"
 
   bottle do
-    root_url "https://github.com/Gepetto/gepetto-viewer/releases/download/v4.8.0"
-    rebuild 1
-    sha256 "0d3840268b5edf42e3427b805999dfd1753e2fa85505a7acc3a22102c34cdc06" => :mojave
+    root_url "https://github.com/Gepetto/gepetto-viewer/releases/download/v4.9.0"
+    sha256 "1e3f74c993583fb4355e7599f96f3e90a1518e7bfd02dae61bd1eb97a2a9347b" => :mojave
   end
 
   depends_on "cmake" => :build
