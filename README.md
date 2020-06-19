@@ -15,6 +15,4 @@ Available formulas
 * [osgQt](https://github.com/openscenegraph/osgQt)
 * [omniORBpy](https://github.com/Gepetto/omniORBpy)
 * [gepetto-viewer](https://github.com/Gepetto/gepetto-viewer)
-* [gepetto-viewer-corba](https://github.com/Gepetto/gepetto-viewer-corba)
-* [gepetto-viewer-corba-python3](https://github.com/Gepetto/gepetto-viewer-corba)
-
+* [gepetto-viewer-corba](https://github.com/Gepetto/gepetto-viewer-corba) with Python 3 support only.
