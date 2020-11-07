@@ -1,16 +1,15 @@
 class OpenSceneGraphWithColladadom < Formula
   desc "3D graphics toolkit with collada support"
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
-  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.3.tar.gz"
-  sha256 "51bbc79aa73ca602cd1518e4e25bd71d41a10abd296e18093a8acfebd3c62696"
+  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.5.tar.gz"
+  sha256 "aea196550f02974d6d09291c5d83b51ca6a03b3767e234a8c0e21322927d1e12"
   head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   conflicts_with "open-scene-graph", :because => "open-scene-graph also provides the same binaries"
 
   bottle do
-    root_url "https://github.com/Gepetto/OpenSceneGraph/releases/download/OpenSceneGraph-3.6.3"
-    rebuild 1
-    sha256 "4b2ed2063cc163a566dbe77ef74c5c8a7ae8e36e00b946f23b0b02ede944980e" => :mojave
+    root_url "https://github.com/Gepetto/OpenSceneGraph/releases/download/OpenSceneGraph-3.6.5"
+    sha256 "a4f0010fcf52b0394df862b87890a9dd687e4a0eaab72c9ece1edcaf3df1636e" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -38,8 +37,9 @@ class OpenSceneGraphWithColladadom < Formula
       -DBUILD_DOCUMENTATION=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_FFmpeg=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_GDAL=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_Jasper=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_OpenEXR=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_TIFF=ON
-      -DCMAKE_DISABLE_FIND_PACKAGE_cairo=ON
       -DCMAKE_CXX_FLAGS=-Wno-error=narrowing
       -DCMAKE_OSX_ARCHITECTURES=x86_64
       -DOSG_DEFAULT_IMAGE_PLUGIN_FOR_OSX=imageio
