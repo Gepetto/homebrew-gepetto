@@ -6,7 +6,7 @@ class Osgqt < Formula
 
   bottle do
     cellar :any
-    root_url "https://github.com/jcarpent/osgQt/releases/download/3.5.7"
+    root_url "https://github.com/Gepetto/osgQt/releases/download/3.5.7"
     cellar :any
     rebuild 2
     sha256 "79130364e8e970ac3d290073077cddeccf3997b09bbc4f835c907cec53227f80" => :mojave
