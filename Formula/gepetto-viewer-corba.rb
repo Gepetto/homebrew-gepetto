@@ -1,13 +1,13 @@
 class GepettoViewerCorba < Formula
   desc "Graphical Interface for Pinocchio and HPP"
   homepage "https://github.com/Gepetto/gepetto-viewer-corba"
-  url "https://github.com/Gepetto/gepetto-viewer-corba/releases/download/v5.4.0/gepetto-viewer-corba-5.4.0.tar.gz"
-  sha256 "9948a276a0733939b86f14afecf96802d95f618a5a4daa59d0b2ab9b4127c3a1"
+  url "https://github.com/Gepetto/gepetto-viewer-corba/releases/download/v5.5.1/gepetto-viewer-corba-5.5.1.tar.gz"
+  sha256 "20c459c7181822b996a28ad188e0e199283c4f6e802e5df1b2075d6b10099326"
   head "https://github.com/Gepetto/gepetto-viewer-corba.git", :branch => "devel"
 
   bottle do
-    root_url "https://github.com/Gepetto/gepetto-viewer-corba/releases/download/v5.4.0"
-    sha256 "38f955f38cd39d3d576357492a973c7bbcb7f4dd14ba9eb22f14aa1b1d6f2cda" => :mojave
+    root_url "https://github.com/Gepetto/gepetto-viewer-corba/releases/download/v5.5.1"
+    sha256 "89abab66541f5b866b08d63818610fe074aa6219b8680671666d4730f1fbb05b" => :mojave
   end
 
   depends_on "cmake" => :build
@@ -19,15 +19,16 @@ class GepettoViewerCorba < Formula
   depends_on "omniorbpy"
   depends_on "gepetto-viewer"
   depends_on "osgqt"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
+
 
   def install
     if build.head?
       system "git fetch --unshallow --tags"
     end
     
-    pyver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
-    py_prefix = Formula["python@3.8"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    py_prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{pyver}"
 
     mkdir "build" do
       args = *std_cmake_args
