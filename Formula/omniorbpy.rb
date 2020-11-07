@@ -6,17 +6,17 @@ class Omniorbpy < Formula
 
   bottle do
     cellar :any
-    root_url "https://github.com/Gepetto/omniORBpy/releases/download/v4.2.4"
-    sha256 "35129cd8a0920dd0b82956b07c73fc12bbc20dabd72b8ce8623d7ce4df9e4e33" => :mojave
+    rebuild 1
+    sha256 "bae2f4422d81b381e9eb0ac25f0df932d766c57865329057a26fd8abd9da8d66" => :mojave
   end
 
   depends_on "pkg-config" => :build
   depends_on "omniorb"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
-    pyver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
-    py_prefix = Formula["python@3.8"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    py_prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{pyver}"
     omniorb = Formula["omniorb"].opt_prefix
     
     ENV["PYTHON"] = "#{py_prefix}/bin/python#{pyver}"
