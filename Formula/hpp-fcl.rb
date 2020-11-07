@@ -1,16 +1,16 @@
 class HppFcl < Formula
   desc "An extension of the Flexible Collision Library"
   homepage "https://github.com/humanoid-path-planner/hpp-fcl"
-  url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.5.1/hpp-fcl-1.5.1.tar.gz"
-  sha256 "78fe426f64457b47255b8649b742354cdf1e2293b6f6bd0a0115e979e1e981e7"
+  url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.6.0/hpp-fcl-1.6.0.tar.gz"
+  sha256 "47dc6007557366880cb39ae658dd7312db357e51121037e0fadb4773ea7c56e5"
 
   head "https://github.com/humanoid-path-planner/hpp-fcl", :branch => "devel"
 
   option "without-python", "Build without Python support"
 
   bottle do
-    root_url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.5.1"
-    sha256 "a8d8e8ad3263259bd1faa762663680d495f4fecafc21e02d02f66d6ad0aa1ec9" => :mojave
+    root_url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.6.0"
+    sha256 "6571ee25779c3ba9d00d1dfd353b9d29e491f0bfcee909bfc9da86b95f14663e" => :mojave
   end 
 
   depends_on "cmake" => :build
@@ -23,7 +23,7 @@ class HppFcl < Formula
   depends_on "cddlib"
   depends_on "boost-python3" => :recommended if build.with? "python"
   depends_on "eigenpy" => :recommended if build.with? "python"
-  depends_on "python@3.8" => :recommended if build.with? "python"
+  depends_on "python@3.9" => :recommended if build.with? "python"
 
   def install
     if build.head?
@@ -31,8 +31,8 @@ class HppFcl < Formula
       system "git pull --unshallow --tags" 
     end 
 
-    pyver = Language::Python.major_minor_version Formula["python@3.8"].opt_bin/"python3"
-    py_prefix = Formula["python@3.8"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    py_prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{pyver}"
 
     mkdir "build" do
       args = *std_cmake_args
