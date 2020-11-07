@@ -7,9 +7,9 @@ class Osgqt < Formula
   bottle do
     cellar :any
     root_url "https://github.com/jcarpent/osgQt/releases/download/3.5.7"
-
-    rebuild 1
-    sha256 "c7e2e7b6954d0c0aef21bc17a722e5eaac7b511d7a6ac94d3118f6aab5e4df24" => :mojave
+    cellar :any
+    rebuild 2
+    sha256 "79130364e8e970ac3d290073077cddeccf3997b09bbc4f835c907cec53227f80" => :mojave
   end
 
   option "with-docs", "Build the documentation with Doxygen"
@@ -23,8 +23,6 @@ class Osgqt < Formula
   depends_on "doxygen" => :build if build.with? "docs"
 
   def install
-    ENV.cxx11 if build.cxx11?
-
     args = std_cmake_args
     args << "-DBUILD_DOCUMENTATION=" + (build.with?("docs") ? "ON" : "OFF")
 
