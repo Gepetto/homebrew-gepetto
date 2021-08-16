@@ -7,7 +7,7 @@ class Pinocchio < Formula
 
   bottle do
     root_url "https://github.com/stack-of-tasks/pinocchio/releases/download/v2.6.3"
-    sha256 catalina: "e4bad8908a19510a5c00c2912c58e4695a56a1e59d3134aac2780ae47f2efce6"
+    sha256 catalina: "b594ca776eec5c7bcd127f7db699a8e498f0a127a83954eca6810470d8e82c19"
   end
 
   option "without-python", "Build without Python support"
